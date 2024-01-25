@@ -31,6 +31,12 @@ Make sure you have the following requirements installed before getting started:
     npm install
     ```
 
+3. Configure Husky for pre-commit hooks:
+
+    ```bash
+    npm run prepare
+    ```
+
 ## Usage
 
 ### Development
