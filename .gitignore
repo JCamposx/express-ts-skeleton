@@ -1,0 +1,8 @@
+node_modules/
+dist/
+
+.vscode/*
+
+.env.*
+!.env.example
+!.vscode/launch.json
