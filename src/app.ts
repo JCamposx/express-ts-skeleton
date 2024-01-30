@@ -7,7 +7,6 @@ import { FRONTEND_URL, NODE_ENV } from "./config";
 
 import { responseErrorHandler } from "./middlewares/errorHandler.middleware";
 import router from "./routes/index.routes";
-import cookieParser from "cookie-parser";
 
 const app: Application = express();
 
@@ -25,8 +24,6 @@ app.use(
 );
 
 app.use(express.json());
-
-app.use(cookieParser());
 
 app.use("/api", router);
 

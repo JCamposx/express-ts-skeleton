@@ -26,11 +26,6 @@ type SendHTTPRequestOptions = {
   body?: Record<string, any>;
 
   /**
-   * The cookies to include in the request.
-   */
-  cookies?: Record<string, string>;
-
-  /**
    * Flag to check if the response has a JSON content type.
    */
   checkContentType?: boolean;
@@ -48,43 +43,32 @@ const sendHTTPRequest = async (
 ): Promise<Response> => {
   let response: Response;
 
-  const cookiesString: string = Object.entries(options.cookies || {})
-    .map(([key, value]) => `${key}=${value}`)
-    .join("; ");
-
   switch (options.type) {
     case TYPE_FETCHING.GET:
-      response = await api
-        .get(options.url)
-        .set("Accept", "application/json")
-        .set("Cookie", cookiesString);
+      response = await api.get(options.url).set("Accept", "application/json");
       break;
     case TYPE_FETCHING.POST:
       response = await api
         .post(options.url)
         .send(options.body)
-        .set("Accept", "application/json")
-        .set("Cookie", cookiesString);
+        .set("Accept", "application/json");
       break;
     case TYPE_FETCHING.PUT:
       response = await api
         .put(options.url)
         .send(options.body)
-        .set("Accept", "application/json")
-        .set("Cookie", cookiesString);
+        .set("Accept", "application/json");
       break;
     case TYPE_FETCHING.PATCH:
       response = await api
         .patch(options.url)
         .send(options.body)
-        .set("Accept", "application/json")
-        .set("Cookie", cookiesString);
+        .set("Accept", "application/json");
       break;
     case TYPE_FETCHING.DELETE:
       response = await api
         .delete(options.url)
-        .set("Accept", "application/json")
-        .set("Cookie", cookiesString);
+        .set("Accept", "application/json");
       break;
     default:
       throw new Error(`Unsupported HTTP method: ${options.type}`);
