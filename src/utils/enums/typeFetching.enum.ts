@@ -1,7 +1,5 @@
 /**
- * Enum that represents request HTTP request methods.
- *
- * @enum {string}
+ * Enum that represents HTTP request methods.
  */
 enum TYPE_FETCHING {
   GET = "GET",

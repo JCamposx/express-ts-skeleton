@@ -8,8 +8,6 @@ import Example from "../utils/interfaces/example.interface";
 class ExampleSchema {
   /**
    * Zod schema for storing Examples.
-   *
-   * @type {ZodType<Example>}
    */
   static store: ZodType<Example> = z.object({
     title: z.string(),

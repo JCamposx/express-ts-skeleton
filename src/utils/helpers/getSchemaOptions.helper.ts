@@ -3,7 +3,7 @@ import { SchemaOptions } from "mongoose";
 /**
  * Schema options for creating a Mongoose model.
  *
- * @returns {object} - Mongoose schema options.
+ * @returns Mongoose schema options.
  */
 const getSchemaOptions = <T>(): SchemaOptions<T> => {
   return {

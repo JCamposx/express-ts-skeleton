@@ -1,12 +1,15 @@
 /**
  * Interface that represents an error response.
- *
- * @interface
- * @property {string} message - The error message
- * @property {Record<string, string[]>} [errors] - The detailed errors.
  */
 interface ResponseError {
+  /**
+   * The error message
+   */
   message: string;
+
+  /**
+   * The detailed errors.
+   */
   errors?: Record<string, string[]>;
 }
 

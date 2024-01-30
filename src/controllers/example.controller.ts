@@ -6,15 +6,10 @@ import ExampleService from "../services/example.service";
 
 /**
  * Controller class for handling Example-related HTTP requests.
- *
- * @class ExampleController
  */
 class ExampleController {
   /**
    * Retrieves all examples.
-   *
-   * @static
-   * @async
    */
   static async index(_req: Request, res: Response) {
     const data: ExampleDocument[] = await ExampleService.getAll();
@@ -25,9 +20,6 @@ class ExampleController {
 
   /**
    * Retrieves one example by its ID.
-   *
-   * @static
-   * @async
    */
   static async show(req: Request, res: Response) {
     const { id } = req.params;
@@ -40,9 +32,6 @@ class ExampleController {
 
   /**
    * Stores a new example.
-   *
-   * @static
-   * @async
    */
   static async store(req: Request, res: Response) {
     const data: Example = {

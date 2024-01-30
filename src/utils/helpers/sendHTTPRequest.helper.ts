@@ -7,31 +7,41 @@ import TYPE_FETCHING from "../enums/typeFetching.enum";
 const api = supertest(app);
 
 /**
- * Interface that represents the options for sending and HTTP request.
- *
- * @interface
- * @property {string} url - The URL for the HTTP request.
- * @property {TYPE_FETCHING} [type=TYPE_FETCHING.GET] - The HTTP request method type.
- * @property {Record<string, any>} [body={}] - The request payload for POST, PUT, PATCH methods.
- * @property {Record<string, string>} [cookies={}] - The cookies to include in the request.
- * @property {boolean} [checkContentType=true] - Flag to check if the response has a JSON content type.
+ * Options for sending an HTTP request.
  */
-interface SendHTTPRequestOptions {
+type SendHTTPRequestOptions = {
+  /**
+   * The URL for the HTTP request.
+   */
   url: string;
-  type?: TYPE_FETCHING;
+
+  /**
+   * The HTTP request method type.
+   */
+  type: TYPE_FETCHING;
+
+  /**
+   * The request payload for POST, PUT, PATCH methods.
+   */
   body?: Record<string, any>;
+
+  /**
+   * The cookies to include in the request.
+   */
   cookies?: Record<string, string>;
+
+  /**
+   * Flag to check if the response has a JSON content type.
+   */
   checkContentType?: boolean;
-}
+};
 
 /**
  * Send HTTP requests for testing.
  *
- * @async
- * @function
- * @param {SendHTTPRequestOptions} options - The options for the HTTP request.
- * @returns {Promise<Response>} The response of the request.
- * @throws {Error} Throws an error if the HTTP method is unsupported.
+ * @param options - The options for the HTTP request.
+ * @returns A promise that resolves with the response of the request.
+ * @throws {Error} If the HTTP method is unsupported.
  */
 const sendHTTPRequest = async (
   options: SendHTTPRequestOptions,

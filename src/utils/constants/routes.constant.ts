@@ -1,6 +1,9 @@
+import urlBuilder from "../helpers/urlBuilder.helper";
+
 /**
  * Constant that represents API endpoints routes.
- * Use these paths with the 'urlBuilder' utility helper to construct complete URLs.
+ *
+ * Use these paths with the {@link urlBuilder} utility helper to construct complete URLs.
  */
 const ROUTES = {
   EXAMPLES: {

@@ -7,16 +7,10 @@ import ExampleModel from "../models/example/model";
 
 /**
  * Service class that provides services related to examples.
- *
- * @class
  */
 class ExampleService {
   /**
    * Gets all examples.
-   *
-   * @static
-   * @async
-   * @returns {Promise<ExampleDocument[]>} A promise that resolves to a list of examples.
    */
   static async getAll(): Promise<ExampleDocument[]> {
     const examples: ExampleDocument[] = await ExampleModel.find();
@@ -27,11 +21,9 @@ class ExampleService {
   /**
    * Gets an specific example by its ID.
    *
-   * @static
-   * @async
-   * @param {string} id - The ID of the ExampleDocument to retrieve.
-   * @returns {Promise<ExampleDocument>} A promise that resolves to an example.
-   * @throws {HTTPError} Throws an HTTPError with a 404 status if the ExampleDocument is not found.
+   * @param id - The ID of the ExampleDocument to retrieve.
+   * @returns A promise that resolves to an example.
+   * @throws {HTTPError} Sn HTTPError with a 404 status if the ExampleDocument is not found.
    */
   static async getById(id: string): Promise<ExampleDocument> {
     if (!isValidObjectId(id)) {
@@ -50,10 +42,8 @@ class ExampleService {
   /**
    * Stores a new example.
    *
-   * @static
-   * @async
-   * @param {Example} example - The example data to be stored.
-   * @returns {Promise<ExampleDocument>} A promise that resolves to the newly created example.
+   * @param example - The example data to be stored.
+   * @returns A promise that resolves to the newly created example.
    */
   static async store(example: Example): Promise<ExampleDocument> {
     const newExample: ExampleDocument = await ExampleModel.create(example);

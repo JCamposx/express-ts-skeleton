@@ -3,10 +3,6 @@ import HTTPError from "./httpError.class";
 
 /**
  * Class that represents a validation error.
- *
- * @class
- * @extends HTTPError
- * @implements {ValidationErrorData}
  */
 class ValidationError extends HTTPError implements ValidationErrorData {
   errors: Record<string, string[]>;
@@ -14,7 +10,7 @@ class ValidationError extends HTTPError implements ValidationErrorData {
   /**
    * Creates an instance of ValidationError.
    *
-   * @param {Record<string, string[]>} [errors={}] - The detailed validation errors.
+   * @param errors - The detailed validation errors.
    */
   constructor(errors: Record<string, string[]> = {}) {
     super("Failed validating data", 422);

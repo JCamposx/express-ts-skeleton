@@ -2,10 +2,6 @@ import HTTPErrorData from "./interfaces/httpError.interface";
 
 /**
  * Class that represents an HTTP Error.
- *
- * @class
- * @extends Error
- * @implements {HTTPErrorData}
  */
 class HTTPError extends Error implements HTTPErrorData {
   statusCode: number;
@@ -13,8 +9,8 @@ class HTTPError extends Error implements HTTPErrorData {
   /**
    * Creates an instance of HTTPError.
    *
-   * @param {string} [message="Internal server error"] - The error message.
-   * @param {number} [statusCode=500] - The HTTP status code.
+   * @param message - The error message.
+   * @param statusCode - The HTTP status code.
    */
   constructor(
     message: string = "Internal server error",

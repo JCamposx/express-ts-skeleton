@@ -10,8 +10,7 @@ import HTTPError from "../utils/classes/httpError.class";
 /**
  * Middleware that handles errors in asynchronous requests.
  *
- * @param {CallableFunction} fn - The asynchronous request handler function.
- * @returns {RequestHandler} - Express middleware function.
+ * @param fn - The asynchronous request handler function.
  */
 export const requestErrorHandler = (fn: CallableFunction): RequestHandler => {
   return async (req: Request, res: Response, next: NextFunction) => {
@@ -25,12 +24,6 @@ export const requestErrorHandler = (fn: CallableFunction): RequestHandler => {
 
 /**
  * Middleware that handles and format errors in the response.
- *
- * @param {Error | HTTPError | ValidationError} error - The error object.
- * @param {Request} req - Express request object.
- * @param {Response} res - Express response object.
- * @param {NextFunction} _next - Express next function.
- * @returns {void}
  */
 export const responseErrorHandler = (
   error: Error | HTTPError | ValidationError,

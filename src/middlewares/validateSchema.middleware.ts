@@ -1,12 +1,13 @@
-import ValidationError from "../utils/classes/validationError.class";
 import { NextFunction, Request, Response } from "express";
-import HTTPError from "../utils/classes/httpError.class";
 import { ZodError, ZodIssue, ZodSchema } from "zod";
+
+import ValidationError from "../utils/classes/validationError.class";
+import HTTPError from "../utils/classes/httpError.class";
 
 /**
  * Middleware that validates request data using a Zod schema.
  *
- * @param {ZodSchema} schema - The Zod schema used to validate request data.
+ * @param schema - The Zod schema used to validate request data.
  * @throws {ValidationError} If the data does not conform to the Zod schema.
  * @throws {HTTPError} If there is an error unrelated to Zod validation.
  */

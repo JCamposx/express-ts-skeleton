@@ -1,10 +1,10 @@
 /**
  * Interface that represents a validation error.
- *
- * @interface
- * @property {Record<string, string[]>} errors - The detailed validation errors.
  */
 interface ValidationError {
+  /**
+   * The detailed validation errors.
+   */
   errors: Record<string, string[]>;
 }
 

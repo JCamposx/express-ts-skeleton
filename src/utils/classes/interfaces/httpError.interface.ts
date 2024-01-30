@@ -1,10 +1,10 @@
 /**
  * Interface that represents an HTTP error.
- *
- * @interface
- * @property {number} statusCode - The HTTP status code.
  */
 interface HTTPError {
+  /**
+   * The HTTP status code.
+   */
   statusCode: number;
 }
 
