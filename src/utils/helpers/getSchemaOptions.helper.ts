@@ -1,25 +1,23 @@
-import { Document } from "mongoose";
+import { SchemaOptions } from "mongoose";
 
 /**
  * Schema options for creating a Mongoose model.
  *
- * @template T - The type of the document.
- *
  * @returns {object} - Mongoose schema options.
  */
-const getSchemaOptions = <T extends Document>(): object => {
+const getSchemaOptions = <T>(): SchemaOptions<T> => {
   return {
     timestamps: true,
     toJSON: {
-      transform: (_doc: T, ret: Record<string, any>) => {
-        ret = { id: ret._id, ...ret };
+      transform: (_doc, ret) => {
+        const modifiedRet: typeof ret = { id: ret._id, ...ret };
 
-        ret._id = undefined;
-        ret.__v = undefined;
-        ret.createdAt = undefined;
-        ret.updatedAt = undefined;
+        modifiedRet._id = undefined;
+        modifiedRet.__v = undefined;
+        modifiedRet.createdAt = undefined;
+        modifiedRet.updatedAt = undefined;
 
-        return ret;
+        return modifiedRet;
       },
     },
   };

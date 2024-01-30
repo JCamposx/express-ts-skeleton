@@ -17,7 +17,7 @@ const exampleSchema = new Schema<ExampleDocument>(
       trim: true,
     },
   },
-  getSchemaOptions<ExampleDocument>(),
+  getSchemaOptions(),
 );
 
 const ExampleModel: Model<ExampleDocument> = model<ExampleDocument>(
