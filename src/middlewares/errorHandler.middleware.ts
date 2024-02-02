@@ -42,7 +42,7 @@ export const responseErrorHandler = (
   };
 
   if (Object.keys(errors).length === 0) {
-    responseError.errors = undefined;
+    delete responseError.errors;
   }
 
   if (NODE_ENV === NODE_ENVS.DEVELOPMENT) {

@@ -12,10 +12,10 @@ const getSchemaOptions = <T>(): SchemaOptions<T> => {
       transform: (_doc, ret) => {
         const modifiedRet: typeof ret = { id: ret._id, ...ret };
 
-        modifiedRet._id = undefined;
-        modifiedRet.__v = undefined;
-        modifiedRet.createdAt = undefined;
-        modifiedRet.updatedAt = undefined;
+        delete modifiedRet._id;
+        delete modifiedRet.__v;
+        delete modifiedRet.createdAt;
+        delete modifiedRet.updatedAt;
 
         return modifiedRet;
       },
