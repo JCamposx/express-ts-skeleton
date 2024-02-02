@@ -20,6 +20,15 @@ const getSchemaOptions = <T>(): SchemaOptions<T> => {
         return modifiedRet;
       },
     },
+    toObject: {
+      transform: (_doc, ret) => {
+        const modifiedRet: typeof ret = { ...ret };
+
+        const parsedRet = JSON.parse(JSON.stringify(modifiedRet));
+
+        return parsedRet;
+      },
+    },
   };
 };
 
